@@ -67,4 +67,9 @@ public class MainRestController {
         return ResponseEntity.status(HttpStatus.OK).body(userService.convertJavaObjectToJsonString());
     }
 
+    @PostMapping("convertObjectToJsonUsingMixins")
+    public ResponseEntity<String> convertObjectToJsonUsingMixins() throws JsonProcessingException {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.convertObjectToJsonUsingMixins());
+    }
+
 }

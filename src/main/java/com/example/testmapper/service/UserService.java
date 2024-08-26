@@ -1,6 +1,7 @@
 package com.example.testmapper.service;
 
 import com.example.testmapper.dto.UserDto;
+import com.example.testmapper.mixins.UserMixin;
 import com.example.testmapper.model.Device;
 import com.example.testmapper.model.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -113,6 +114,22 @@ public class UserService {
 //        String json = writer.toString();
         String json = objectMapper.writeValueAsString(device);
         System.out.println("json :::::  " + json);
+        return json;
+    }
+
+    public String convertObjectToJsonUsingMixins() throws JsonProcessingException {
+        User user = new User();
+        user.setId(4321L);
+        user.setFirstName("Hossam");
+        user.setLastName("Ayman");
+        user.setEmail("hossam2000.albadry@gmail.com");
+        user.setPassword("1234567");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.addMixIn(User.class, UserMixin.class);
+
+
+        String json = objectMapper.writeValueAsString(user);
         return json;
     }
 }
