@@ -11,11 +11,6 @@ import java.util.function.*;
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Entity {
+    private String name;
     private Map<String, Object> field;
-    private Map<String, Function<String, Object>> methodWithStringArgument;
-    private Map<String, BiFunction<String, String, Object>> methodWithTwoStringArguments;
-    private Map<String, Consumer<String>> voidMethodWithStringArgument;
-    private Map<String, BiConsumer<String, String>> voidMethodWithTwoStringArguments;
-    private Map<String, Predicate<String>> booleanMethodWithStringArgument;
-    private Map<String, BiPredicate<String, String>> booleanMethodWithTwoStringArguments;
 }
